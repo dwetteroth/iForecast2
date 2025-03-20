@@ -9,7 +9,7 @@
 
 Check it out in action, I have stood this up on my personal server.
 
-<a href="http://18.209.226.222/weather/show" target="_blank">Click here</a>
+<a href="http://18.209.226.222/" target="_blank">Click here</a>
 
 ---
 
