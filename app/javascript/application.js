@@ -28,7 +28,7 @@ $(function() {
       minute: '2-digit',
       hour12: true
     });
-    // e.g., "Mar 19, 8:43 PM"
+
 
     
     const city = cw.name || 'Unknown';
@@ -154,8 +154,8 @@ $(function() {
     $('#forecast').html(forecastHtml);
   }
   
-  // Event handler for the search button
-  $('#search-btn').on('click', function() {
+  // Define the search function
+  function performSearch() {
     const address = $.trim($('#address').val());
     if (!address) {
       alert('Please enter an address.');
@@ -164,7 +164,7 @@ $(function() {
     
     $.ajax({
       url: '/weather/search',
-      method: 'GET',  // or 'POST' if your endpoint requires it
+      method: 'GET', 
       dataType: 'json',
       data: { address },
       success: displayWeather,
@@ -172,5 +172,15 @@ $(function() {
         console.error("Error fetching weather data:", err);
       }
     });
+  }
+
+  // Event handler for the search button
+  $('#search-btn').on('click', performSearch);
+
+  // Listen for Enter key on the address input box
+  $('#address').on('keypress', function(e) {
+    if (e.which === 13) {
+      performSearch();
+    }
   });
 });

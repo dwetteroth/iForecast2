@@ -13,8 +13,7 @@ class DummyWeatherService
 end
 
 class WeatherControllerTest < ActionDispatch::IntegrationTest
-  # Disable fixture loading if you don’t need them. Otherwise, update/remove the addresses fixture.
-  # self.fixture_path = "#{Rails.root}/test/empty_fixtures"
+
 
   setup do
     Rails.cache.clear

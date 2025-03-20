@@ -3760,3 +3760,31 @@ Processing by WeatherController#search as JSON
 Completed 200 OK in 491ms (Views: 0.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.4ms)
 
 
+Started GET "/" for ::1 at 2025-03-20 11:48:08 -0600
+Processing by WeatherController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering weather/show.html.erb within layouts/application
+  Rendered weather/show.html.erb within layouts/application (Duration: 1.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | GC: 0.0ms)
+Completed 200 OK in 33ms (Views: 6.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/application-461142f3.js" for ::1 at 2025-03-20 11:48:08 -0600
+Started GET "/weather/search?address=10687%20West%20Cooper%20Drive" for ::1 at 2025-03-20 11:48:11 -0600
+Processing by WeatherController#search as JSON
+  Parameters: {"address"=>"10687 West Cooper Drive"}
+Completed 200 OK in 38ms (Views: 0.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/weather/search?address=10687%20West%20Cooper%20Drive" for ::1 at 2025-03-20 11:48:15 -0600
+Processing by WeatherController#search as JSON
+  Parameters: {"address"=>"10687 West Cooper Drive"}
+Completed 200 OK in 36ms (Views: 0.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/weather/search?address=Denver%2C%20CO" for ::1 at 2025-03-20 11:48:20 -0600
+Processing by WeatherController#search as JSON
+  Parameters: {"address"=>"Denver, CO"}
+Completed 200 OK in 548ms (Views: 0.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
