@@ -504,3 +504,615 @@ LocationIqTest: test_geocode_raises_an_error_when_no_result_is_found
 LocationIqTest: test_geocode_returns_latitude,_longitude,_and_zip_code
 ----------------------------------------------------------------------
   [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mFixtures Load (0.1ms)[0m  [1m[31mDELETE FROM "addresses";
+INSERT INTO "addresses" ("id", "street", "city", "state", "zip_code", "latitude", "longitude", "created_at", "updated_at") VALUES (NULL, '123 Main St', 'Denver', 'CO', NULL, NULL, NULL, '2025-03-20 16:07:45', '2025-03-20 16:07:45'), (NULL, '456 Oak Ave', 'Boulder', 'CO', NULL, NULL, NULL, '2025-03-20 16:07:45', '2025-03-20 16:07:45')[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[35m (0.4ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------
+LocationIqTest: test_geocode_returns_latitude,_longitude,_and_zip_code
+----------------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------
+LocationIqTest: test_geocode_raises_an_error_when_no_result_is_found
+--------------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------
+OpenWeatherServiceTest: test_fetch_weather_returns_expected_data
+----------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------
+OpenWeatherServiceTest: test_fetch_forecast_returns_expected_forecast_data
+--------------------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------------------------------------------
+WeatherControllerTest: test_search_returns_weather_data_with_cache_flag_true_on_subsequent_call
+-----------------------------------------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+Started GET "/weather/search" for 127.0.0.1 at 2025-03-20 10:07:45 -0600
+Processing by WeatherController#search as JSON
+  Parameters: {"address"=>"10687 W Cooper Dr.", "weather"=>{}}
+Completed 200 OK in 15ms (Views: 0.1ms | ActiveRecord: 0.1ms (0 queries, 0 cached) | GC: 0.0ms)
+Started GET "/weather/search" for 127.0.0.1 at 2025-03-20 10:07:45 -0600
+Processing by WeatherController#search as JSON
+  Parameters: {"address"=>"10687 W Cooper Dr.", "weather"=>{}}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------------------
+WeatherControllerTest: test_search_returns_weather_data_with_cache_flag_false_on_first_call
+-------------------------------------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+Started GET "/weather/search" for 127.0.0.1 at 2025-03-20 10:07:45 -0600
+Processing by WeatherController#search as JSON
+  Parameters: {"address"=>"10687 W Cooper Dr.", "weather"=>{}}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------
+WeatherControllerTest: test_should_get_index
+--------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+Started GET "/weather/index" for 127.0.0.1 at 2025-03-20 10:07:45 -0600
+Processing by WeatherController#index as JSON
+  Parameters: {"weather"=>{}}
+No template found for WeatherController#index, rendering head :no_content
+Completed 204 No Content in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mFixtures Load (0.4ms)[0m  [1m[31mDELETE FROM "addresses";
+INSERT INTO "addresses" ("id", "street", "city", "state", "zip_code", "latitude", "longitude", "created_at", "updated_at") VALUES (NULL, '123 Main St', 'Denver', 'CO', NULL, NULL, NULL, '2025-03-20 16:16:08', '2025-03-20 16:16:08'), (NULL, '456 Oak Ave', 'Boulder', 'CO', NULL, NULL, NULL, '2025-03-20 16:16:08', '2025-03-20 16:16:08')[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------
+LocationIqTest: test_geocode_raises_an_error_when_no_result_is_found
+--------------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------
+LocationIqTest: test_geocode_returns_latitude,_longitude,_and_zip_code
+----------------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------------------
+WeatherControllerTest: test_search_returns_weather_data_with_cache_flag_false_on_first_call
+-------------------------------------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+Started GET "/weather/search" for 127.0.0.1 at 2025-03-20 10:16:08 -0600
+Processing by WeatherController#search as JSON
+  Parameters: {"address"=>"10687 W Cooper Dr.", "weather"=>{}}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.1ms (0 queries, 0 cached) | GC: 0.5ms)
+
+MockExpectationError - mocked method :geocode called with unexpected arguments ["10687 W Cooper Dr"]:
+  app/controllers/weather_controller.rb:12:in `block in search'
+  app/controllers/weather_controller.rb:11:in `search'
+  test/controllers/weather_controller_test.rb:41:in `block (3 levels) in <class:WeatherControllerTest>'
+  test/controllers/weather_controller_test.rb:40:in `block (2 levels) in <class:WeatherControllerTest>'
+  test/controllers/weather_controller_test.rb:38:in `block in <class:WeatherControllerTest>'
+
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------
+WeatherControllerTest: test_should_get_index
+--------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+Started GET "/weather/index" for 127.0.0.1 at 2025-03-20 10:16:08 -0600
+Processing by WeatherController#index as JSON
+  Parameters: {"weather"=>{}}
+No template found for WeatherController#index, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------------------------------------------
+WeatherControllerTest: test_search_returns_weather_data_with_cache_flag_true_on_subsequent_call
+-----------------------------------------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+Started GET "/weather/search" for 127.0.0.1 at 2025-03-20 10:16:08 -0600
+Processing by WeatherController#search as JSON
+  Parameters: {"address"=>"10687 W Cooper Dr.", "weather"=>{}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+MockExpectationError - mocked method :geocode called with unexpected arguments ["10687 W Cooper Dr"]:
+  app/controllers/weather_controller.rb:12:in `block in search'
+  app/controllers/weather_controller.rb:11:in `search'
+  test/controllers/weather_controller_test.rb:63:in `block (3 levels) in <class:WeatherControllerTest>'
+  test/controllers/weather_controller_test.rb:62:in `block (2 levels) in <class:WeatherControllerTest>'
+  test/controllers/weather_controller_test.rb:61:in `block in <class:WeatherControllerTest>'
+
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------
+OpenWeatherServiceTest: test_fetch_forecast_returns_expected_forecast_data
+--------------------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------
+OpenWeatherServiceTest: test_fetch_weather_returns_expected_data
+----------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mFixtures Load (0.0ms)[0m  [1m[31mDELETE FROM "addresses";
+INSERT INTO "addresses" ("id", "street", "city", "state", "zip_code", "latitude", "longitude", "created_at", "updated_at") VALUES (NULL, '123 Main St', 'Denver', 'CO', NULL, NULL, NULL, '2025-03-20 16:16:31', '2025-03-20 16:16:31'), (NULL, '456 Oak Ave', 'Boulder', 'CO', NULL, NULL, NULL, '2025-03-20 16:16:31', '2025-03-20 16:16:31')[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------
+LocationIqTest: test_geocode_returns_latitude,_longitude,_and_zip_code
+----------------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------
+LocationIqTest: test_geocode_raises_an_error_when_no_result_is_found
+--------------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------------------------------------------
+WeatherControllerTest: test_search_returns_weather_data_with_cache_flag_true_on_subsequent_call
+-----------------------------------------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+Started GET "/weather/search" for 127.0.0.1 at 2025-03-20 10:16:31 -0600
+Processing by WeatherController#search as JSON
+  Parameters: {"address"=>"10687 W Cooper Dr.", "weather"=>{}}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.1ms (0 queries, 0 cached) | GC: 0.3ms)
+
+MockExpectationError - mocked method :geocode called with unexpected arguments ["10687 W Cooper Dr"]:
+  app/controllers/weather_controller.rb:12:in `block in search'
+  app/controllers/weather_controller.rb:11:in `search'
+  test/controllers/weather_controller_test.rb:63:in `block (3 levels) in <class:WeatherControllerTest>'
+  test/controllers/weather_controller_test.rb:62:in `block (2 levels) in <class:WeatherControllerTest>'
+  test/controllers/weather_controller_test.rb:61:in `block in <class:WeatherControllerTest>'
+
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------------------
+WeatherControllerTest: test_search_returns_weather_data_with_cache_flag_false_on_first_call
+-------------------------------------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+Started GET "/weather/search" for 127.0.0.1 at 2025-03-20 10:16:31 -0600
+Processing by WeatherController#search as JSON
+  Parameters: {"address"=>"10687 W Cooper Dr.", "weather"=>{}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+MockExpectationError - mocked method :geocode called with unexpected arguments ["10687 W Cooper Dr"]:
+  app/controllers/weather_controller.rb:12:in `block in search'
+  app/controllers/weather_controller.rb:11:in `search'
+  test/controllers/weather_controller_test.rb:41:in `block (3 levels) in <class:WeatherControllerTest>'
+  test/controllers/weather_controller_test.rb:40:in `block (2 levels) in <class:WeatherControllerTest>'
+  test/controllers/weather_controller_test.rb:38:in `block in <class:WeatherControllerTest>'
+
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------
+WeatherControllerTest: test_should_get_index
+--------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+Started GET "/weather/index" for 127.0.0.1 at 2025-03-20 10:16:31 -0600
+Processing by WeatherController#index as JSON
+  Parameters: {"weather"=>{}}
+No template found for WeatherController#index, rendering head :no_content
+Completed 204 No Content in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------
+OpenWeatherServiceTest: test_fetch_weather_returns_expected_data
+----------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------
+OpenWeatherServiceTest: test_fetch_forecast_returns_expected_forecast_data
+--------------------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mFixtures Load (0.0ms)[0m  [1m[31mDELETE FROM "addresses";
+INSERT INTO "addresses" ("id", "street", "city", "state", "zip_code", "latitude", "longitude", "created_at", "updated_at") VALUES (NULL, '123 Main St', 'Denver', 'CO', NULL, NULL, NULL, '2025-03-20 16:16:42', '2025-03-20 16:16:42'), (NULL, '456 Oak Ave', 'Boulder', 'CO', NULL, NULL, NULL, '2025-03-20 16:16:42', '2025-03-20 16:16:42')[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------------------------------------------
+WeatherControllerTest: test_search_returns_weather_data_with_cache_flag_true_on_subsequent_call
+-----------------------------------------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+Started GET "/weather/search" for 127.0.0.1 at 2025-03-20 10:16:42 -0600
+Processing by WeatherController#search as JSON
+  Parameters: {"address"=>"10687 W Cooper Dr.", "weather"=>{}}
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.1ms (0 queries, 0 cached) | GC: 0.3ms)
+Started GET "/weather/search" for 127.0.0.1 at 2025-03-20 10:16:42 -0600
+Processing by WeatherController#search as JSON
+  Parameters: {"address"=>"10687 W Cooper Dr.", "weather"=>{}}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------------------
+WeatherControllerTest: test_search_returns_weather_data_with_cache_flag_false_on_first_call
+-------------------------------------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+Started GET "/weather/search" for 127.0.0.1 at 2025-03-20 10:16:42 -0600
+Processing by WeatherController#search as JSON
+  Parameters: {"address"=>"10687 W Cooper Dr.", "weather"=>{}}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------
+WeatherControllerTest: test_should_get_index
+--------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+Started GET "/weather/index" for 127.0.0.1 at 2025-03-20 10:16:42 -0600
+Processing by WeatherController#index as JSON
+  Parameters: {"weather"=>{}}
+No template found for WeatherController#index, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------
+LocationIqTest: test_geocode_raises_an_error_when_no_result_is_found
+--------------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------
+LocationIqTest: test_geocode_returns_latitude,_longitude,_and_zip_code
+----------------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------
+OpenWeatherServiceTest: test_fetch_forecast_returns_expected_forecast_data
+--------------------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------
+OpenWeatherServiceTest: test_fetch_weather_returns_expected_data
+----------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mFixtures Load (0.0ms)[0m  [1m[31mDELETE FROM "addresses";
+INSERT INTO "addresses" ("id", "street", "city", "state", "zip_code", "latitude", "longitude", "created_at", "updated_at") VALUES (NULL, '123 Main St', 'Denver', 'CO', NULL, NULL, NULL, '2025-03-20 16:17:09', '2025-03-20 16:17:09'), (NULL, '456 Oak Ave', 'Boulder', 'CO', NULL, NULL, NULL, '2025-03-20 16:17:09', '2025-03-20 16:17:09')[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------
+LocationIqTest: test_geocode_returns_latitude,_longitude,_and_zip_code
+----------------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------
+LocationIqTest: test_geocode_raises_an_error_when_no_result_is_found
+--------------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------
+OpenWeatherServiceTest: test_fetch_weather_returns_expected_data
+----------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------
+OpenWeatherServiceTest: test_fetch_forecast_returns_expected_forecast_data
+--------------------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------------------------------------------
+WeatherControllerTest: test_search_returns_weather_data_with_cache_flag_true_on_subsequent_call
+-----------------------------------------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+Started GET "/weather/search" for 127.0.0.1 at 2025-03-20 10:17:09 -0600
+Processing by WeatherController#search as JSON
+  Parameters: {"address"=>"10687 W Cooper Dr.", "weather"=>{}}
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.1ms (0 queries, 0 cached) | GC: 0.3ms)
+
+MockExpectationError - mocked method :geocode called with unexpected arguments ["10687 W Cooper Dr"]:
+  app/controllers/weather_controller.rb:12:in `block in search'
+  app/controllers/weather_controller.rb:11:in `search'
+  test/controllers/weather_controller_test.rb:63:in `block (3 levels) in <class:WeatherControllerTest>'
+  test/controllers/weather_controller_test.rb:62:in `block (2 levels) in <class:WeatherControllerTest>'
+  test/controllers/weather_controller_test.rb:61:in `block in <class:WeatherControllerTest>'
+
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------------------
+WeatherControllerTest: test_search_returns_weather_data_with_cache_flag_false_on_first_call
+-------------------------------------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+Started GET "/weather/search" for 127.0.0.1 at 2025-03-20 10:17:10 -0600
+Processing by WeatherController#search as JSON
+  Parameters: {"address"=>"10687 W Cooper Dr.", "weather"=>{}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+MockExpectationError - mocked method :geocode called with unexpected arguments ["10687 W Cooper Dr"]:
+  app/controllers/weather_controller.rb:12:in `block in search'
+  app/controllers/weather_controller.rb:11:in `search'
+  test/controllers/weather_controller_test.rb:41:in `block (3 levels) in <class:WeatherControllerTest>'
+  test/controllers/weather_controller_test.rb:40:in `block (2 levels) in <class:WeatherControllerTest>'
+  test/controllers/weather_controller_test.rb:38:in `block in <class:WeatherControllerTest>'
+
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------
+WeatherControllerTest: test_should_get_index
+--------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+Started GET "/weather/index" for 127.0.0.1 at 2025-03-20 10:17:10 -0600
+Processing by WeatherController#index as JSON
+  Parameters: {"weather"=>{}}
+No template found for WeatherController#index, rendering head :no_content
+Completed 204 No Content in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mFixtures Load (0.0ms)[0m  [1m[31mDELETE FROM "addresses";
+INSERT INTO "addresses" ("id", "street", "city", "state", "zip_code", "latitude", "longitude", "created_at", "updated_at") VALUES (NULL, '123 Main St', 'Denver', 'CO', NULL, NULL, NULL, '2025-03-20 16:18:13', '2025-03-20 16:18:13'), (NULL, '456 Oak Ave', 'Boulder', 'CO', NULL, NULL, NULL, '2025-03-20 16:18:13', '2025-03-20 16:18:13')[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------
+LocationIqTest: test_geocode_raises_an_error_when_no_result_is_found
+--------------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------
+LocationIqTest: test_geocode_returns_latitude,_longitude,_and_zip_code
+----------------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------
+WeatherControllerTest: test_should_get_index
+--------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+Started GET "/weather/index" for 127.0.0.1 at 2025-03-20 10:18:13 -0600
+Processing by WeatherController#index as JSON
+  Parameters: {"weather"=>{}}
+No template found for WeatherController#index, rendering head :no_content
+Completed 204 No Content in 7ms (ActiveRecord: 0.1ms (0 queries, 0 cached) | GC: 0.5ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------------------
+WeatherControllerTest: test_search_returns_weather_data_with_cache_flag_false_on_first_call
+-------------------------------------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+Started GET "/weather/search" for 127.0.0.1 at 2025-03-20 10:18:13 -0600
+Processing by WeatherController#search as JSON
+  Parameters: {"address"=>"10687 W Cooper Dr.", "weather"=>{}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------------------------------------------
+WeatherControllerTest: test_search_returns_weather_data_with_cache_flag_true_on_subsequent_call
+-----------------------------------------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+Started GET "/weather/search" for 127.0.0.1 at 2025-03-20 10:18:13 -0600
+Processing by WeatherController#search as JSON
+  Parameters: {"address"=>"10687 W Cooper Dr.", "weather"=>{}}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+Started GET "/weather/search" for 127.0.0.1 at 2025-03-20 10:18:13 -0600
+Processing by WeatherController#search as JSON
+  Parameters: {"address"=>"10687 W Cooper Dr.", "weather"=>{}}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------
+OpenWeatherServiceTest: test_fetch_forecast_returns_expected_forecast_data
+--------------------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------
+OpenWeatherServiceTest: test_fetch_weather_returns_expected_data
+----------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mFixtures Load (0.0ms)[0m  [1m[31mDELETE FROM "addresses";
+INSERT INTO "addresses" ("id", "street", "city", "state", "zip_code", "latitude", "longitude", "created_at", "updated_at") VALUES (NULL, '123 Main St', 'Denver', 'CO', NULL, NULL, NULL, '2025-03-20 16:20:10', '2025-03-20 16:20:10'), (NULL, '456 Oak Ave', 'Boulder', 'CO', NULL, NULL, NULL, '2025-03-20 16:20:10', '2025-03-20 16:20:10')[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------
+LocationIqTest: test_geocode_returns_latitude,_longitude,_and_zip_code
+----------------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------
+LocationIqTest: test_geocode_raises_an_error_when_no_result_is_found
+--------------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------------------
+WeatherControllerTest: test_search_returns_weather_data_with_cache_flag_false_on_first_call
+-------------------------------------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+Started GET "/weather/search" for 127.0.0.1 at 2025-03-20 10:20:10 -0600
+Processing by WeatherController#search as JSON
+  Parameters: {"address"=>"10687 W Cooper Dr.", "weather"=>{}}
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.1ms (0 queries, 0 cached) | GC: 0.2ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------------------------------------------
+WeatherControllerTest: test_search_returns_weather_data_with_cache_flag_true_on_subsequent_call
+-----------------------------------------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+Started GET "/weather/search" for 127.0.0.1 at 2025-03-20 10:20:10 -0600
+Processing by WeatherController#search as JSON
+  Parameters: {"address"=>"10687 W Cooper Dr.", "weather"=>{}}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+Started GET "/weather/search" for 127.0.0.1 at 2025-03-20 10:20:10 -0600
+Processing by WeatherController#search as JSON
+  Parameters: {"address"=>"10687 W Cooper Dr.", "weather"=>{}}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------
+WeatherControllerTest: test_should_get_index
+--------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+Started GET "/weather/index" for 127.0.0.1 at 2025-03-20 10:20:10 -0600
+Processing by WeatherController#index as JSON
+  Parameters: {"weather"=>{}}
+No template found for WeatherController#index, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------
+OpenWeatherServiceTest: test_fetch_weather_returns_expected_data
+----------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------
+OpenWeatherServiceTest: test_fetch_forecast_returns_expected_forecast_data
+--------------------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mFixtures Load (0.1ms)[0m  [1m[31mDELETE FROM "addresses";
+INSERT INTO "addresses" ("id", "street", "city", "state", "zip_code", "latitude", "longitude", "created_at", "updated_at") VALUES (NULL, '123 Main St', 'Denver', 'CO', NULL, NULL, NULL, '2025-03-20 16:20:22', '2025-03-20 16:20:22'), (NULL, '456 Oak Ave', 'Boulder', 'CO', NULL, NULL, NULL, '2025-03-20 16:20:22', '2025-03-20 16:20:22')[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_key_check[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------------------------------------------
+WeatherControllerTest: test_search_returns_weather_data_with_cache_flag_true_on_subsequent_call
+-----------------------------------------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+Started GET "/weather/search" for 127.0.0.1 at 2025-03-20 10:20:22 -0600
+Processing by WeatherController#search as JSON
+  Parameters: {"address"=>"10687 W Cooper Dr.", "weather"=>{}}
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.1ms (0 queries, 0 cached) | GC: 0.3ms)
+Started GET "/weather/search" for 127.0.0.1 at 2025-03-20 10:20:22 -0600
+Processing by WeatherController#search as JSON
+  Parameters: {"address"=>"10687 W Cooper Dr.", "weather"=>{}}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------
+WeatherControllerTest: test_should_get_index
+--------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+Started GET "/weather/index" for 127.0.0.1 at 2025-03-20 10:20:22 -0600
+Processing by WeatherController#index as JSON
+  Parameters: {"weather"=>{}}
+No template found for WeatherController#index, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------------------
+WeatherControllerTest: test_search_returns_weather_data_with_cache_flag_false_on_first_call
+-------------------------------------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+Started GET "/weather/search" for 127.0.0.1 at 2025-03-20 10:20:22 -0600
+Processing by WeatherController#search as JSON
+  Parameters: {"address"=>"10687 W Cooper Dr.", "weather"=>{}}
+Completed 200 OK in 0ms (Views: 0.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------
+OpenWeatherServiceTest: test_fetch_weather_returns_expected_data
+----------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------
+OpenWeatherServiceTest: test_fetch_forecast_returns_expected_forecast_data
+--------------------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------
+LocationIqTest: test_geocode_returns_latitude,_longitude,_and_zip_code
+----------------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------
+LocationIqTest: test_geocode_raises_an_error_when_no_result_is_found
+--------------------------------------------------------------------
+[dotenv] Saved a snapshot of [32mENV[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m

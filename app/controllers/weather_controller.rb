@@ -4,18 +4,18 @@ class WeatherController < ApplicationController
   def show;end
 
   def search
-    address = params[:address]
+    address = sanitize_address(params[:address])
     input_zipcode = extract_zipcode(address)
     
     # Cache or fetch the geocode result
     geocode_result = Rails.cache.fetch("geocode:#{address}", expires_in: 30.minutes) do
       LocationIq.new.geocode(address)  # returns [lat, lon, zip]
     end
+
     lat, lon, api_zipcode = geocode_result
     zipcode = input_zipcode.presence || api_zipcode
+    cache_key = "geocode:#{Digest::SHA256.hexdigest(address)}"
 
-    # Use the ZIP code as the cache key for weather data.
-    cache_key = "weather:#{zipcode}"
     if zipcode.present? && Rails.cache.exist?(cache_key)
       # Cache hit: read from cache and mark as cached.
       result_data = Rails.cache.read(cache_key).merge(cached: true)
@@ -33,6 +33,11 @@ class WeatherController < ApplicationController
 
 
   private
+
+  def sanitize_address(address)
+    return nil unless address.is_a?(String) && address.length <= 255 # Limit size
+    address.gsub(/[^a-zA-Z0-9,\s.#&'-]/, '') # Allow common address characters
+  end
 
   def extract_zipcode(address)
     # Match a 5-digit or ZIP+4 code only if it appears at the end of the string

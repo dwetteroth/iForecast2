@@ -53,15 +53,15 @@ How to Set Up Environment Variables
 
 To securely store your API keys, follow these steps:
 
-Create a .env file in the project root directory:
+Create a .env file in the project root directory
 
-Open the .env file in a text editor and add your API keys:
+Open the .env file in a text editor and add your API keys
 
-Ensure .env is ignored by Git to prevent accidental commits:
+Ensure .env is ignored by Git to prevent accidental commits
 
-Install dotenv-rails (if not already installed) to load environment variables:
+Install dotenv-rails (if not already installed) to load environment variables
 
-Modify config/application.rb to load .env automatically:
+Modify config/application.rb to load .env automatically
 
 Now, when you run the app, it will securely load API keys from the .env file.
 
@@ -128,32 +128,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 For questions or feedback, reach out to **@dwetteroth** on GitHub.
 
 
-<<<<<<< HEAD
-# iForecast
-A Ruby on Rails Weather Forecasting App
-=======
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
->>>>>>> bd21de0 (Initial commit - linking local Rails project to GitHub)

@@ -2,7 +2,7 @@ class OpenWeatherService
     
   def initialize(lat_lng)
     @lat, @lon = lat_lng
-    @api_key = Rails.application.credentials.dig(:openweather, :api_key)
+    @api_key = ENV['OPENWEATHER_API_KEY'] || Rails.application.credentials.dig(:openweather, :api_key)
     @weather_url =      'https://api.openweathermap.org/data/2.5/weather'
     @forecast_url =     'https://api.openweathermap.org/data/2.5/forecast'
   end

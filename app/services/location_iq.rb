@@ -1,12 +1,13 @@
 class LocationIq
 
   def initialize()
-    @api_key = Rails.application.credentials.dig(:locationiq, :api_key)
+    @api_key = ENV['LOCATIONIQ_API_KEY'] || Rails.application.credentials.dig(:locationiq, :api_key)
   end
 
   def geocode(address)
-    result = Geocoder.search(address)
 
+    result = Geocoder.search(address)
+    
     if result.empty?
       raise "No geocode data found for address: #{address}"
     else

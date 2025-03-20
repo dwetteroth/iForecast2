@@ -3406,3 +3406,132 @@ RuntimeError - Error fetching weather data: 401:
   app/controllers/weather_controller.rb:25:in `block in search'
   app/controllers/weather_controller.rb:24:in `search'
 
+Started GET "/weather/show" for ::1 at 2025-03-20 10:22:42 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='IForecast'*/[0m
+Processing by WeatherController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering weather/show.html.erb within layouts/application
+  Rendered weather/show.html.erb within layouts/application (Duration: 3.0ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | GC: 0.9ms)
+Completed 200 OK in 77ms (Views: 14.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.9ms)
+
+
+Started GET "/assets/application-9f84bec6.js" for ::1 at 2025-03-20 10:22:42 -0600
+Started GET "/assets/application-3b5d6297.css" for ::1 at 2025-03-20 10:22:42 -0600
+Started GET "/assets/turbo.min-1262d735.js" for ::1 at 2025-03-20 10:22:42 -0600
+Started GET "/assets/controllers/hello_controller-708796bd.js" for ::1 at 2025-03-20 10:22:42 -0600
+Started GET "/assets/controllers/index-ee64e1f1.js" for ::1 at 2025-03-20 10:22:42 -0600
+Started GET "/assets/application-9f84bec6.js" for ::1 at 2025-03-20 10:22:42 -0600
+Started GET "/assets/controllers/application-3affb389.js" for ::1 at 2025-03-20 10:22:43 -0600
+Started GET "/assets/stimulus-loading-1fc53fe7.js" for ::1 at 2025-03-20 10:22:43 -0600
+Started GET "/assets/stimulus.min-4b1e420e.js" for ::1 at 2025-03-20 10:22:43 -0600
+Started GET "/assets/turbo.min-02fd5b81.js.map" for ::1 at 2025-03-20 10:22:43 -0600
+Started GET "/assets/stimulus.min-2395e199.js.map" for ::1 at 2025-03-20 10:22:43 -0600
+Started GET "/weather/search?address=10687%20West%20Cooper%20Drive" for ::1 at 2025-03-20 10:22:45 -0600
+Processing by WeatherController#search as JSON
+  Parameters: {"address"=>"10687 West Cooper Drive"}
+Completed 500 Internal Server Error in 390ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+
+RuntimeError - Error fetching weather data: 401:
+  app/services/open_weather_service.rb:20:in `fetch_weather'
+  app/controllers/weather_controller.rb:25:in `block in search'
+  app/controllers/weather_controller.rb:24:in `search'
+
+[dotenv] Set [36mLOCATIONIQ_API_KEY[0m and [36mOPENWEATHER_API_KEY[0m
+[dotenv] Loaded [33m.env[0m
+[dotenv] Loaded [33m.env[0m
+Started GET "/weather/show" for ::1 at 2025-03-20 10:24:01 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='IForecast'*/[0m
+Processing by WeatherController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering weather/show.html.erb within layouts/application
+  Rendered weather/show.html.erb within layouts/application (Duration: 3.0ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 19.0ms | GC: 0.9ms)
+Completed 200 OK in 80ms (Views: 22.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.6ms)
+
+
+Started GET "/assets/application-9f84bec6.js" for ::1 at 2025-03-20 10:24:01 -0600
+Started GET "/assets/turbo.min-1262d735.js" for ::1 at 2025-03-20 10:24:01 -0600
+Started GET "/assets/application-3b5d6297.css" for ::1 at 2025-03-20 10:24:01 -0600
+Started GET "/assets/controllers/hello_controller-708796bd.js" for ::1 at 2025-03-20 10:24:01 -0600
+Started GET "/assets/controllers/index-ee64e1f1.js" for ::1 at 2025-03-20 10:24:01 -0600
+Started GET "/assets/application-9f84bec6.js" for ::1 at 2025-03-20 10:24:01 -0600
+Started GET "/assets/stimulus.min-4b1e420e.js" for ::1 at 2025-03-20 10:24:01 -0600
+Started GET "/assets/controllers/application-3affb389.js" for ::1 at 2025-03-20 10:24:01 -0600
+Started GET "/assets/stimulus-loading-1fc53fe7.js" for ::1 at 2025-03-20 10:24:01 -0600
+Started GET "/assets/turbo.min-02fd5b81.js.map" for ::1 at 2025-03-20 10:24:01 -0600
+Started GET "/assets/stimulus.min-2395e199.js.map" for ::1 at 2025-03-20 10:24:01 -0600
+Started GET "/weather/search?address=10687%20West%20Cooper%20Drive" for ::1 at 2025-03-20 10:24:03 -0600
+Processing by WeatherController#search as JSON
+  Parameters: {"address"=>"10687 West Cooper Drive"}
+Completed 200 OK in 440ms (Views: 0.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/weather/search?address=34253145qetrqeryg" for ::1 at 2025-03-20 10:24:35 -0600
+Processing by WeatherController#search as JSON
+  Parameters: {"address"=>"34253145qetrqeryg"}
+Completed 500 Internal Server Error in 306ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+
+RuntimeError - Error fetching weather data: 400:
+  app/services/open_weather_service.rb:20:in `fetch_weather'
+  app/controllers/weather_controller.rb:25:in `block in search'
+  app/controllers/weather_controller.rb:24:in `search'
+
+Started GET "/weather/search?address=34253145qetrqeryg" for ::1 at 2025-03-20 10:24:38 -0600
+Processing by WeatherController#search as JSON
+  Parameters: {"address"=>"34253145qetrqeryg"}
+Completed 500 Internal Server Error in 154ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+
+RuntimeError - Error fetching weather data: 400:
+  app/services/open_weather_service.rb:20:in `fetch_weather'
+  app/controllers/weather_controller.rb:25:in `block in search'
+  app/controllers/weather_controller.rb:24:in `search'
+
+Started GET "/weather/search?address=qergwrgnsfghnsfznbgdf" for ::1 at 2025-03-20 10:24:45 -0600
+Processing by WeatherController#search as JSON
+  Parameters: {"address"=>"qergwrgnsfghnsfznbgdf"}
+Completed 500 Internal Server Error in 256ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+
+
+
+RuntimeError - Error fetching weather data: 400:
+  app/services/open_weather_service.rb:20:in `fetch_weather'
+  app/controllers/weather_controller.rb:25:in `block in search'
+  app/controllers/weather_controller.rb:24:in `search'
+
+Started GET "/weather/search?address=80128" for ::1 at 2025-03-20 10:25:03 -0600
+Processing by WeatherController#search as JSON
+  Parameters: {"address"=>"80128"}
+Completed 200 OK in 546ms (Views: 1.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.6ms)
+
+
+Started GET "/weather/search?address=80128" for ::1 at 2025-03-20 10:25:07 -0600
+Processing by WeatherController#search as JSON
+  Parameters: {"address"=>"80128"}
+Completed 200 OK in 32ms (Views: 0.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/weather/search?address=Denver%2C%20CO" for ::1 at 2025-03-20 10:25:19 -0600
+Processing by WeatherController#search as JSON
+  Parameters: {"address"=>"Denver, CO"}
+Completed 200 OK in 444ms (Views: 0.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.7ms)
+
+
+Started GET "/weather/search?address=10687%20West%20Cooper%20Drive" for ::1 at 2025-03-20 10:25:26 -0600
+Processing by WeatherController#search as JSON
+  Parameters: {"address"=>"10687 West Cooper Drive"}
+Completed 200 OK in 25ms (Views: 0.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/weather/search?address=10687%20West%20Cooper%20Drive" for ::1 at 2025-03-20 10:25:28 -0600
+Processing by WeatherController#search as JSON
+  Parameters: {"address"=>"10687 West Cooper Drive"}
+Completed 200 OK in 24ms (Views: 0.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.2ms)
+
+
