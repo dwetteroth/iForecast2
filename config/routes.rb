@@ -18,4 +18,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+   # Set root to weather#show
+  root "weather#show"
 end

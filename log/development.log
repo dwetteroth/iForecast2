@@ -3535,3 +3535,228 @@ Processing by WeatherController#search as JSON
 Completed 200 OK in 24ms (Views: 0.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.2ms)
 
 
+Started GET "/" for ::1 at 2025-03-20 11:38:36 -0600
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/dwetteroth/.rvm/gems/ruby-3.2.6/gems/railties-8.0.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/dwetteroth/.rvm/gems/ruby-3.2.6/gems/railties-8.0.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.6ms | GC: 0.0ms)
+Completed 200 OK in 27ms (Views: 1.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/weather/current" for ::1 at 2025-03-20 11:38:39 -0600
+Processing by WeatherController#current as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering weather/current.html.erb within layouts/application
+  Rendered weather/current.html.erb within layouts/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | GC: 0.0ms)
+Completed 200 OK in 31ms (Views: 2.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/weather/search" for ::1 at 2025-03-20 11:38:47 -0600
+Processing by WeatherController#search as HTML
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+
+NoMethodError - undefined method `match' for nil:NilClass:
+  app/controllers/weather_controller.rb:44:in `extract_zipcode'
+  app/controllers/weather_controller.rb:8:in `search'
+
+Started POST "/__better_errors/7e46c2ba11a6b40c/variables" for ::1 at 2025-03-20 11:38:47 -0600
+Started GET "/weather/search" for ::1 at 2025-03-20 11:38:55 -0600
+Processing by WeatherController#search as HTML
+Completed 500 Internal Server Error in 55ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.4ms)
+
+
+
+NoMethodError - undefined method `match' for nil:NilClass:
+  app/controllers/weather_controller.rb:44:in `extract_zipcode'
+  app/controllers/weather_controller.rb:8:in `search'
+
+Started POST "/__better_errors/5548a191a952c323/variables" for ::1 at 2025-03-20 11:38:55 -0600
+Started GET "/weather/current" for ::1 at 2025-03-20 11:38:57 -0600
+Processing by WeatherController#current as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering weather/current.html.erb within layouts/application
+  Rendered weather/current.html.erb within layouts/application (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | GC: 0.2ms)
+Completed 200 OK in 32ms (Views: 4.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/weather/current" for ::1 at 2025-03-20 11:38:57 -0600
+Started GET "/weather/forecast" for ::1 at 2025-03-20 11:38:57 -0600
+Processing by WeatherController#current as JSON
+
+AbstractController::ActionNotFound - The action 'forecast' could not be found for WeatherController:
+
+  Rendering layout layouts/application.html.erb
+  Rendering weather/current.html.erb within layouts/application
+  Rendered weather/current.html.erb within layouts/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | GC: 0.0ms)
+Completed 200 OK in 30ms (Views: 0.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/weather/current" for ::1 at 2025-03-20 11:38:58 -0600
+Processing by WeatherController#current as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering weather/current.html.erb within layouts/application
+  Rendered weather/current.html.erb within layouts/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.1ms | GC: 0.3ms)
+Completed 200 OK in 38ms (Views: 1.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/weather/forecast" for ::1 at 2025-03-20 11:38:58 -0600
+Started GET "/weather/current" for ::1 at 2025-03-20 11:38:58 -0600
+
+AbstractController::ActionNotFound - The action 'forecast' could not be found for WeatherController:
+
+Processing by WeatherController#current as JSON
+  Rendering layout layouts/application.html.erb
+  Rendering weather/current.html.erb within layouts/application
+  Rendered weather/current.html.erb within layouts/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | GC: 0.0ms)
+Completed 200 OK in 28ms (Views: 0.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/weather/current" for ::1 at 2025-03-20 11:38:58 -0600
+Processing by WeatherController#current as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering weather/current.html.erb within layouts/application
+  Rendered weather/current.html.erb within layouts/application (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | GC: 0.3ms)
+Completed 200 OK in 42ms (Views: 11.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/weather/forecast" for ::1 at 2025-03-20 11:38:58 -0600
+Started GET "/weather/current" for ::1 at 2025-03-20 11:38:58 -0600
+Processing by WeatherController#current as JSON
+
+AbstractController::ActionNotFound - The action 'forecast' could not be found for WeatherController:
+
+  Rendering layout layouts/application.html.erb
+  Rendering weather/current.html.erb within layouts/application
+  Rendered weather/current.html.erb within layouts/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | GC: 0.3ms)
+Completed 200 OK in 30ms (Views: 1.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.7ms)
+
+
+Started GET "/weather/current" for ::1 at 2025-03-20 11:38:58 -0600
+Processing by WeatherController#current as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering weather/current.html.erb within layouts/application
+  Rendered weather/current.html.erb within layouts/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | GC: 0.0ms)
+Completed 200 OK in 25ms (Views: 0.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/weather/forecast" for ::1 at 2025-03-20 11:38:59 -0600
+Started GET "/weather/current" for ::1 at 2025-03-20 11:38:59 -0600
+
+AbstractController::ActionNotFound - The action 'forecast' could not be found for WeatherController:
+
+Processing by WeatherController#current as JSON
+  Rendering layout layouts/application.html.erb
+  Rendering weather/current.html.erb within layouts/application
+  Rendered weather/current.html.erb within layouts/application (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.1ms | GC: 0.2ms)
+Completed 200 OK in 25ms (Views: 1.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/weather/current" for ::1 at 2025-03-20 11:38:59 -0600
+Processing by WeatherController#current as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering weather/current.html.erb within layouts/application
+  Rendered weather/current.html.erb within layouts/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.8ms | GC: 0.2ms)
+Completed 200 OK in 23ms (Views: 1.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/weather/forecast" for ::1 at 2025-03-20 11:38:59 -0600
+Started GET "/weather/current" for ::1 at 2025-03-20 11:38:59 -0600
+Processing by WeatherController#current as JSON
+
+AbstractController::ActionNotFound - The action 'forecast' could not be found for WeatherController:
+
+  Rendering layout layouts/application.html.erb
+  Rendering weather/current.html.erb within layouts/application
+  Rendered weather/current.html.erb within layouts/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.7ms | GC: 0.1ms)
+Completed 200 OK in 27ms (Views: 0.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/weather/current" for ::1 at 2025-03-20 11:38:59 -0600
+Processing by WeatherController#current as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering weather/current.html.erb within layouts/application
+  Rendered weather/current.html.erb within layouts/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.7ms | GC: 0.1ms)
+Completed 200 OK in 23ms (Views: 0.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/weather/forecast" for ::1 at 2025-03-20 11:38:59 -0600
+Started GET "/weather/current" for ::1 at 2025-03-20 11:38:59 -0600
+
+AbstractController::ActionNotFound - The action 'forecast' could not be found for WeatherController:
+
+Processing by WeatherController#current as JSON
+  Rendering layout layouts/application.html.erb
+  Rendering weather/current.html.erb within layouts/application
+  Rendered weather/current.html.erb within layouts/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | GC: 0.0ms)
+Completed 200 OK in 27ms (Views: 0.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/weather/current" for ::1 at 2025-03-20 11:38:59 -0600
+Processing by WeatherController#current as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering weather/current.html.erb within layouts/application
+  Rendered weather/current.html.erb within layouts/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | GC: 0.0ms)
+Completed 200 OK in 25ms (Views: 0.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/weather/current" for ::1 at 2025-03-20 11:38:59 -0600
+Started GET "/weather/forecast" for ::1 at 2025-03-20 11:38:59 -0600
+Processing by WeatherController#current as JSON
+
+AbstractController::ActionNotFound - The action 'forecast' could not be found for WeatherController:
+
+  Rendering layout layouts/application.html.erb
+  Rendering weather/current.html.erb within layouts/application
+  Rendered weather/current.html.erb within layouts/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.8ms | GC: 0.1ms)
+Completed 200 OK in 27ms (Views: 1.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/weather/show" for ::1 at 2025-03-20 11:39:09 -0600
+Processing by WeatherController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering weather/show.html.erb within layouts/application
+  Rendered weather/show.html.erb within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | GC: 0.0ms)
+Completed 200 OK in 30ms (Views: 2.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2025-03-20 11:39:53 -0600
+Processing by WeatherController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering weather/show.html.erb within layouts/application
+  Rendered weather/show.html.erb within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | GC: 0.1ms)
+Completed 200 OK in 27ms (Views: 2.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/" for ::1 at 2025-03-20 11:40:08 -0600
+Processing by WeatherController#show as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering weather/show.html.erb within layouts/application
+  Rendered weather/show.html.erb within layouts/application (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.7ms | GC: 0.1ms)
+Completed 200 OK in 31ms (Views: 5.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/weather/search?address=10687%20West%20Cooper%20Drive" for ::1 at 2025-03-20 11:40:11 -0600
+Processing by WeatherController#search as JSON
+  Parameters: {"address"=>"10687 West Cooper Drive"}
+Completed 200 OK in 491ms (Views: 0.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.4ms)
+
+
